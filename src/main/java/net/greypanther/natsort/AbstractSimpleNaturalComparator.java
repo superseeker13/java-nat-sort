@@ -5,8 +5,8 @@ import java.util.Comparator;
 abstract class AbstractSimpleNaturalComparator<T extends CharSequence> implements Comparator<T> {
   @Override
   public int compare(T sequence1, T sequence2) {
-    int len1 = sequence1.length(), len2 = sequence2.length();
-    int idx1 = 0, idx2 = 0;
+    int len1 = sequence1.length();
+    int len2 = sequence2.length();
 
     for (int idx1 = 0, idx2 = 0; idx1 < len1 && idx2 < len2; idx1++, idx2++) {
       char c1 = sequence1.charAt(idx1);
