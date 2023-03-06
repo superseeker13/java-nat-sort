@@ -48,7 +48,7 @@ abstract class AbstractSimpleNaturalComparator<T extends CharSequence> implement
         }
 
         if (num1 != num2) {
-          return compareUnsigned(num1, num2);
+          return Long.compareUnsigned(num1, num2);
         }
       }
     }
@@ -57,10 +57,6 @@ abstract class AbstractSimpleNaturalComparator<T extends CharSequence> implement
   }
 
   abstract int compareChars(char c1, char c2);
-
-  private static int compareUnsigned(long num1, long num2) {
-    return compare(num1 + Long.MIN_VALUE, num2 + Long.MIN_VALUE);
-  }
 
   private static int compare(long x, long y) {
     return (x < y) ? -1 : ((x == y) ? 0 : 1);
