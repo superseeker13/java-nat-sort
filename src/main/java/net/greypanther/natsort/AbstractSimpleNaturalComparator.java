@@ -25,22 +25,22 @@ abstract class AbstractSimpleNaturalComparator<T extends CharSequence> implement
           return c;
         }
       } else {
-        long num1 = parse(c1);
+        long num1 = Character.getNumericValue(c1);
         while (idx1 < len1) {
           char digit = sequence1.charAt(idx1++);
           if (Character.isDigit(digit)) {
-            num1 = num1 * 10 + parse(digit);
+            num1 = num1 * 10 + Character.getNumericValue(digit);
           } else {
             idx1--;
             break;
           }
         }
 
-        long num2 = parse(c2);
+        long num2 = Character.getNumericValue(c2);
         while (idx2 < len2) {
           char digit = sequence2.charAt(idx2++);
           if (Character.isDigit(digit)) {
-            num2 = num2 * 10 + parse(digit);
+            num2 = num2 * 10 + Character.getNumericValue(digit);
           } else {
             idx2--;
             break;
@@ -57,12 +57,4 @@ abstract class AbstractSimpleNaturalComparator<T extends CharSequence> implement
   }
 
   abstract int compareChars(char c1, char c2);
-
-  private static int compare(long x, long y) {
-    return (x < y) ? -1 : ((x == y) ? 0 : 1);
-  }
-
-  private static long parse(char c1) {
-    return c1 - '0';
-  }
 }
