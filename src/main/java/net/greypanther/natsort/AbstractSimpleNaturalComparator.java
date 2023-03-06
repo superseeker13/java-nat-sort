@@ -26,24 +26,20 @@ abstract class AbstractSimpleNaturalComparator<T extends CharSequence> implement
         }
       } else {
         long num1 = Character.getNumericValue(c1);
-        while (idx1 < len1) {
-          char digit = sequence1.charAt(idx1);
-          if (!Character.isDigit(digit)) {
-            break;
-          } else {
+        char digit = sequence1.charAt(idx1);
+        while (idx1 < len1 && Character.isDigit(digit)) {
             num1 = num1 * 10 + Character.getNumericValue(digit);
             idx1 += 1;
+            digit = sequence2.charAt(idx1);
           }
         }
 
         long num2 = Character.getNumericValue(c2);
-        while (idx2 < len2) {
-          char digit = sequence2.charAt(idx2);
-          if (!Character.isDigit(digit)) {
-            break;
-          } else {
+        char digit = sequence2.charAt(idx2);
+        while (idx2 < len2  && Character.isDigit(digit)) {
             num2 = num2 * 10 + Character.getNumericValue(digit);
             idx2 += 1;
+            digit = sequence2.charAt(idx2);
           }
         }
 
