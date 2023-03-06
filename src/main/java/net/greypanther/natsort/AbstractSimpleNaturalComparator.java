@@ -8,9 +8,9 @@ abstract class AbstractSimpleNaturalComparator<T extends CharSequence> implement
     int len1 = sequence1.length(), len2 = sequence2.length();
     int idx1 = 0, idx2 = 0;
 
-    while (idx1 < len1 && idx2 < len2) {
-      char c1 = sequence1.charAt(idx1++);
-      char c2 = sequence2.charAt(idx2++);
+    for (int idx1 = 0, idx2 = 0; idx1 < len1 && idx2 < len2; idx1++, idx2++) {
+      char c1 = sequence1.charAt(idx1);
+      char c2 = sequence2.charAt(idx2);
 
       boolean isDigit1 = Character.isDigit(c1);
       boolean isDigit2 = Character.isDigit(c2);
